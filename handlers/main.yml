@@ -1,0 +1,5 @@
+---
+- name: Reboot the server
+  command: shutdown -r +1
+  args:
+    warn: false
