@@ -8,3 +8,7 @@ bond_master:
   onboot: "yes"
   bootproto: dhcp
   bonding_opts: "\"miimon=500 mode=active-backup\""
+bond_slaves:
+  onboot: "yes"
+  master: bond0
+  slave: "yes"
