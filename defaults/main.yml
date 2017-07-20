@@ -1,0 +1,10 @@
+---
+bond_script_dir: /etc/sysconfig/network-scripts
+bond_master:
+  device: bond0
+  name: bond0
+  type: Bond
+  bonding_master: "yes"
+  onboot: "yes"
+  bootproto: dhcp
+  bonding_opts: "\"miimon=500 mode=active-backup\""
