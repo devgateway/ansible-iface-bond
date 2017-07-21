@@ -15,10 +15,7 @@
     regexp="^\\s*{{ item[1] | upper }}="
     line="{{ item[1] | upper }}={{ bond_slaves[item[1]] }}"
   with_nested:
-    - >
-      {{ ansible_interfaces
-      | reject("equalto", ansible_lo.device)
-      | reject("equalto", bond_master.device)
-      | list }}
+    - "{{ ansible_interfaces }}"
     - "{{ bond_slaves.keys() }}"
+  when: hostvars[inventory_hostname]['ansible_%s' | format(item[0])].type == "ether"
   notify: Reboot the server
